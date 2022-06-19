@@ -1,26 +1,25 @@
 import React from "react";
 
-const MovieCard = ({movieObjects}) => {
+const MovieCard = ({ movieResult }) => {
+
   return (
-    <div className="container">
-      <div className="movie">
-        <div>
-          <p>{movieObjects.Year}</p>
-        </div>
-        <div>
-          <img
-            src={
-                movieObjects.Poster !== "N/A"
-                ? movieObjects.Poster
-                : "https://via.placeholder.com/400"
-            }
-            alt={movieObjects.Title}
-          />
-        </div>
-        <div>
-          <span>{movieObjects.Type}</span>
-          <h3>{movieObjects.Title}</h3>
-        </div>
+    <div className="movie">
+      <div>
+        <p>{movieResult.Year}</p>
+      </div>
+      <div>
+        <img
+          src={
+            movieResult.Poster !== "N/A"
+              ? movieResult.Poster
+              : "https://via.placeholder.com/400"
+          }
+          alt={movieResult.Title}
+        />
+      </div>
+      <div>
+        <span>{movieResult.Type}</span>
+        <h3>{movieResult.Title}</h3>
       </div>
     </div>
   );
