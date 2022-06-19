@@ -8,6 +8,7 @@ const API_URL = "http://www.omdbapi.com/?apikey=c1aa3a51";
 const App = () => {
 
   const [movieResults, setMovieResults] = useState([]);
+  const [searchKeyWord, setSearchKeyWord] = useState('');
 
   // Function to get the movies from the API
   const searchMovies = async (title) => {
@@ -17,7 +18,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    searchMovies("Batman");
+    searchMovies("batman");
   }, []);
 
   return (
@@ -25,9 +26,15 @@ const App = () => {
       <h1>Laki Boy Movies</h1>
       <div className="search">
         <input 
-          placeholder="Search for movies" 
+          placeholder="Search for movies"
+          value = {searchKeyWord}
+          onChange = {(e) => setSearchKeyWord(e.target.value)}
         />
-        <img src={searchIcon} alt="search" />
+        <img 
+          src={searchIcon} 
+          alt="search" 
+          onClick={() => searchMovies(searchKeyWord)}
+        />
       </div>
       {
         movieResults.length > 0 ? (
